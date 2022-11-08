@@ -1,4 +1,5 @@
 terraform {
+  # remote backend configuration
   # backend "s3" {
   #   bucket         = "terraform-state-keunbae"
   #   key            = "global/s3/terraform.tfstate"
@@ -16,6 +17,8 @@ provider "aws" {
 
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "terraform-state-keunbae"
+
+  force_destroy = true
 
   # Prevent accidental deletion of this S3 bucket
   lifecycle {
