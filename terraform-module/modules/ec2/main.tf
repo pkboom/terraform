@@ -21,7 +21,7 @@ resource "aws_eip" "cloudcasts_addr" {
   vpc = true
 
   lifecycle {
-    prevent_destroy = true
+    # prevent_destroy = true
   }
 
   tags = {
