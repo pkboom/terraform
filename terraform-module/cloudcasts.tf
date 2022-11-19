@@ -66,22 +66,29 @@ module "ec2_app" {
   infra_role    = "app"
   instance_size = "t3.small"
   instance_ami  = data.aws_ami.app.id
+  subnets       = keys(module.vpc.vpc_public_subnets) # Note: Public subnets 
+  # security_groups = [] # TODO: Create security groups
+  # instance_root_device_size = 12 
+
   # instance_root_device_size = 12 # Optional
 }
 
 module "ec2_worker" {
   source = "./modules/ec2"
 
-  infra_env                 = var.infra_env
-  infra_role                = "worker"
-  instance_size             = "t3.large"
-  instance_ami              = data.aws_ami.app.id
-  instance_root_device_size = 50
+  infra_env     = var.infra_env
+  infra_role    = "worker"
+  instance_size = "t3.small"
+  instance_ami  = data.aws_ami.app.id
+  subnets       = keys(module.vpc.vpc_private_subnets) # Note: Private subnets  
+  # security_groups = [] # TODO: Create security groups
+  # instance_root_device_size = 20 
 }
 
 module "vpc" {
   source = "./modules/vpc"
 
   infra_env = var.infra_env
-  vpc_cidr  = "10.0.0.0/17"
+  # For later use(peer comminucations between subnets), we use 10.0.0.0/17 instead of 10.0.0.0/16
+  vpc_cidr = "10.0.0.0/17"
 }

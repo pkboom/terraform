@@ -16,6 +16,8 @@ resource "aws_subnet" "public" {
 
   cidr_block = cidrsubnet(aws_vpc.vpc.cidr_block, 4, each.value)
 
+  availability_zone = each.key
+
   tags = {
     Name        = "cloudcasts-${var.infra_env}-public-subnet"
     Project     = "cloudcasts.io"

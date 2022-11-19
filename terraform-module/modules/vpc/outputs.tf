@@ -7,7 +7,7 @@ output "vpc_cidr" {
 }
 
 output "vpc_public_subnets" {
-  # Result is a map of subnet id to cidr block, e.g.
+  # Result is a map of subnet ids to cidr block, e.g.
   # { "subnet_1234" = "10.0.1.0/4", ...}
   value = {
     for subnet in aws_subnet.public :
@@ -16,7 +16,7 @@ output "vpc_public_subnets" {
 }
 
 output "vpc_private_subnets" {
-  # Result is a map of subnet id to cidr block, e.g.
+  # Result is a map of subnet ids to cidr block, e.g.
   # { "subnet_1234" = "10.0.1.0/4", ...}
   value = {
     for subnet in aws_subnet.private :
