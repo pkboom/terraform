@@ -66,11 +66,13 @@ module "ec2_app" {
   infra_role    = "app"
   instance_size = "t3.small"
   instance_ami  = data.aws_ami.app.id
-  subnets       = keys(module.vpc.vpc_public_subnets) # Note: Public subnets 
-  # security_groups = [] # TODO: Create security groups
-  # instance_root_device_size = 12 
-
-  # instance_root_device_size = 12 # Optional
+  # instance_root_device_size = 12 # optional
+  subnets         = keys(module.vpc.vpc_public_subnets) # Note: Public subnets 
+  security_groups = ["sg-02f19160745643dbc"]
+  tags = {
+    Name = "cloudcasts-${var.infra_env}-web"
+  }
+  create_eip = true
 }
 
 module "ec2_worker" {
@@ -80,9 +82,13 @@ module "ec2_worker" {
   infra_role    = "worker"
   instance_size = "t3.small"
   instance_ami  = data.aws_ami.app.id
-  subnets       = keys(module.vpc.vpc_private_subnets) # Note: Private subnets  
-  # security_groups = [] # TODO: Create security groups
   # instance_root_device_size = 20 
+  subnets         = keys(module.vpc.vpc_private_subnets) # Note: Private subnets  
+  security_groups = ["sg-02f19160745643dbc"]
+  tags = {
+    Name = "cloudcasts-${var.infra_env}-worker"
+  }
+  create_eip = false
 }
 
 module "vpc" {
