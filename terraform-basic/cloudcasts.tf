@@ -12,7 +12,7 @@ terraform {
   # https://developer.hashicorp.com/terraform/language/settings/backends/configuration
   # You can't use variables in the backend configuration
   backend "s3" {
-    bucket         = "cloudcasts-terraform-keunbae2"
+    bucket         = "cloudcasts-terraform-keunbae"
     key            = "cloudcasts/terraform.tfstate" // location inside the bucket
     region         = "us-east-2"
     profile        = "cloudcasts"

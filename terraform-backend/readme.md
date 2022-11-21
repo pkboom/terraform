@@ -7,6 +7,10 @@ Run `terraform init` to
 
 Run terraform apply to deploy.
 
+```sh
+terraform apply -var-file variables.tfvars
+```
+
 # Use Backend
 
 1. Write Terraform code to create the S3 bucket and DynamoDB table, and deploy that code with a local backend.
@@ -51,8 +55,8 @@ output "my_bucket_name" {
 ```
 
 ```sh
-$ terraform import aws_s3_bucket.terraform_state terraform-state-keunbae
-$ terraform import aws_dynamodb_table.terraform_locks terraform-locks-keunbae
+terraform import aws_s3_bucket.terraform_state terraform-state-keunbae
+terraform import aws_dynamodb_table.terraform_locks terraform-locks-keunbae
 ```
 
 https://github.com/hashicorp/terraform-provider-aws/issues/423#issuecomment-510072042
@@ -72,10 +76,10 @@ resource "aws_s3_bucket" "terraform_state" {
 ```
 
 ```sh
-$ terraform apply
-$ terraform destroy
+terraform apply
+terraform destroy
 # or
-$ terraform plan -destroy -target=aws_s3_bucket.name
+terraform plan -destroy -target=aws_s3_bucket.name
 ```
 
 https://dev.to/the_cozma/terraform-handling-the-deletion-of-a-non-empty-aws-s3-bucket-3jg3

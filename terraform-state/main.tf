@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket        = "cloudcasts-terraform-keunbae2"
+  bucket        = "cloudcasts-terraform-keunbae"
   force_destroy = true # delete all objects in the bucket even when not empty
 
   # Prevent accidental deletion of this S3 bucket
