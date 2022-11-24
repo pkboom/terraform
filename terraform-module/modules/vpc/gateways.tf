@@ -101,7 +101,7 @@ resource "aws_route" "private" {
   nat_gateway_id         = aws_nat_gateway.ngw.id
 }
 
-# Public Route to Public Route Table for Public Subnets
+# Public Route Table for Public Subnets
 resource "aws_route_table_association" "public" {
   for_each  = aws_subnet.public
   subnet_id = aws_subnet.public[each.key].id
@@ -109,7 +109,7 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
-# Private Route to Private Route Table for Private Subnets
+# Private Route Table for Private Subnets
 resource "aws_route_table_association" "private" {
   for_each  = aws_subnet.private
   subnet_id = aws_subnet.private[each.key].id

@@ -68,7 +68,7 @@ module "ec2_app" {
   instance_ami  = data.aws_ami.app.id
   # instance_root_device_size = 12 # optional
   subnets         = keys(module.vpc.vpc_public_subnets) # Note: Public subnets 
-  security_groups = ["sg-02f19160745643dbc"]
+  security_groups = [module.vpc.security_group_public]
   tags = {
     Name = "cloudcasts-${var.infra_env}-web"
   }
@@ -84,7 +84,7 @@ module "ec2_worker" {
   instance_ami  = data.aws_ami.app.id
   # instance_root_device_size = 20 
   subnets         = keys(module.vpc.vpc_private_subnets) # Note: Private subnets  
-  security_groups = ["sg-02f19160745643dbc"]
+  security_groups = [module.vpc.security_group_private]
   tags = {
     Name = "cloudcasts-${var.infra_env}-worker"
   }
