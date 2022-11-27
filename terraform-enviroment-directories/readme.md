@@ -1,5 +1,1 @@
-```sh
-terraform init
-terraform plan -var-file=variables.tfvars
-terraform apply -var-file=variables.tfvars
-```
+A lot of the community seem to use local environment directories more than workspaces.
