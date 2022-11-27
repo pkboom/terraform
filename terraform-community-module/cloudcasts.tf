@@ -1,5 +1,3 @@
-
-
 terraform {
   required_providers {
     aws = {
@@ -59,7 +57,6 @@ variable "instance_size" {
   description = "ec2 web server size"
   default     = "t3.small"
 }
-
 
 module "ec2_app" {
   source = "./modules/ec2"

@@ -3,7 +3,6 @@ resource "random_shuffle" "subnets" {
   result_count = 1
 }
 
-
 # https://registry.terraform.io/modules/terraform-aws-modules/ec2-instance/aws/latest
 module "ec2-instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
