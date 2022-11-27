@@ -14,6 +14,7 @@ resource "aws_subnet" "public" {
 
   vpc_id = aws_vpc.vpc.id
 
+  # add four 0s and fill it with each.value
   cidr_block = cidrsubnet(aws_vpc.vpc.cidr_block, 4, each.value)
 
   availability_zone = each.key

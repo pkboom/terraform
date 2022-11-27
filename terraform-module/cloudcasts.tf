@@ -95,6 +95,7 @@ module "vpc" {
   source = "./modules/vpc"
 
   infra_env = var.infra_env
-  # For later use(peer comminucations between subnets), we use 10.0.0.0/17 instead of 10.0.0.0/16
+  # For later use(peer comminucations between subnets), 
+  # we use 10.0.0.0/17 instead of 10.0.0.0/16
   vpc_cidr = "10.0.0.0/17"
 }
