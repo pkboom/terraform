@@ -7,11 +7,11 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "cloudcasts-terraform-keunbae"
-    key            = "cloudcasts/terraform.tfstate"
-    region         = "us-east-2"
-    dynamodb_table = "cloudcasts-terraform-keunbae"
-    profile        = "cloudcasts"
+    # bucket         = "cloudcasts-terraform-keunbae"
+    # key            = "cloudcasts/terraform.tfstate"
+    region = "us-east-2"
+    # dynamodb_table = "cloudcasts-terraform-keunbae"
+    profile = "cloudcasts"
   }
 }
 
@@ -44,6 +44,7 @@ data "aws_ami" "app" {
 variable "infra_env" {
   type        = string
   description = "infrastructure environment"
+  default     = "production"
 }
 
 variable "default_region" {
@@ -59,7 +60,7 @@ variable "instance_size" {
 }
 
 module "ec2_app" {
-  source = "./modules/ec2"
+  source = "../modules/ec2"
 
   infra_env     = var.infra_env
   infra_role    = "app"
@@ -75,7 +76,7 @@ module "ec2_app" {
 }
 
 module "ec2_worker" {
-  source = "./modules/ec2"
+  source = "../modules/ec2"
 
   infra_env     = var.infra_env
   infra_role    = "worker"
@@ -91,7 +92,7 @@ module "ec2_worker" {
 }
 
 module "vpc" {
-  source = "./modules/vpc"
+  source = "../modules/vpc"
 
   infra_env = var.infra_env
   # For later use(peer comminucations between subnets), we use 10.0.0.0/17 instead of 10.0.0.0/16
