@@ -30,6 +30,8 @@ variable "default_region" {
   default     = "us-east-2"
 }
 
+# The community VPC module creates an IGW, NAT Gateway, Route tables for us.
+# This module intelligently creates route tables for public vs private subnets as well.
 module "vpc" {
   source = "../../modules/vpc"
 

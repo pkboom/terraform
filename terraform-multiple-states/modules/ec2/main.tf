@@ -15,6 +15,7 @@ module "ec2-instance" {
   vpc_security_group_ids = var.security_groups
   subnet_id              = random_shuffle.subnets.result[0]
 
+  # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#root_block_device
   root_block_device = [{
     volume_size = var.instance_root_device_size
     volume_type = "gp3"
@@ -31,7 +32,6 @@ module "ec2-instance" {
     var.tags
   )
 }
-
 
 resource "aws_eip" "cloudcasts_addr" {
   # Create the number of `count` of EIPs
