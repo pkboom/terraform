@@ -1,4 +1,4 @@
-# The community VPC module creates an IGW, NAT Gateway, Route tables for us.
+# The community VPC module creates an IGW, NAT Gateway for us.
 # This module intelligently creates route tables for public vs private subnets as well.
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"

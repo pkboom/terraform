@@ -1,18 +1,3 @@
-# Install
-
-[AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-
-[Terraform](https://developer.hashicorp.com/terraform/downloads)
-
-# Credentials
-
-```
-// ~/.aws/credentials
-[cloudcasts]
-aws_access_key_id = ...
-aws_secret_access_key = ...
-```
-
 # Command
 
 ```sh
