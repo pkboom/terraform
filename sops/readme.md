@@ -7,7 +7,13 @@
 <img src="images/bucket1.png" />
 <img src="images/bucket2.png" />
 
-# Run `sops` before run terraform
+# Create encrypted secret
+
+1. `.sops.yaml` using `.sops.example.yaml`
+
+2. `secret.json` using `secret.example.json`
+
+3. Run `sops` before run terraform to create a encrypted secret
 
 ```bash
 sops --encrypt secret.json > secret.enc.json
