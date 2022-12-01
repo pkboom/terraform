@@ -22,3 +22,9 @@ sops --encrypt secret.json > secret.enc.json
 # To use `vi` as a default editor, if not.
 
 Set `export EDITOR="/Applications/TextEdit.app/Contents/MacOS/TextEdit"` in `.zshrc`
+
+# Edit encrypted file.
+
+```sh
+sops secret.enc.json
+```
