@@ -35,16 +35,6 @@ variable "default_region" {
   default     = "us-east-2"
 }
 
-variable db_user {
-  type = string
-  description = "the database user"
-}
- 
-variable db_pass {
-  type = string
-  description = "the database password"
-}
-
 data "sops_file" "secret" {
   source_file = "secret.enc.json"
 }

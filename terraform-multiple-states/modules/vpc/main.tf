@@ -14,8 +14,8 @@ module "vpc" {
   single_nat_gateway     = true
   one_nat_gateway_per_az = false
 
-  private_subnets = var.private_subnets
-  public_subnets  = var.public_subnets
+  private_subnets  = var.private_subnets
+  public_subnets   = var.public_subnets
   database_subnets = var.database_subnets
 
   tags = {
@@ -37,5 +37,3 @@ module "vpc" {
     Role = "database"
   }
 }
-
-
