@@ -10,7 +10,7 @@
 
 [terraform-enviroment-directories](./terraform-enviroment-directories/readme.md)
 
-[terraform-multiple-states](./terraform-multiple-states/readme.md)
+[terraform-multiple-states](./terraform-multiple-states/readme.md) <- complete version
 
 [CloudCasts](https://cloudcasts.io/course/terraform)
 
