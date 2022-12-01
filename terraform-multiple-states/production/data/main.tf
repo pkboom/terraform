@@ -4,6 +4,11 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4.0"
     }
+
+    sops = {
+      source = "carlpett/sops"
+      version = "~> 0.5"
+    } 
   }
 
   backend "s3" {
@@ -40,6 +45,10 @@ variable db_pass {
   description = "the database password"
 }
 
+data "sops_file" "secret" {
+  source_file = "secret.enc.json"
+}
+
 # New data sources used:
 data "aws_vpc" "vpc" {
   tags = {
@@ -72,6 +81,6 @@ module "database" {
     instance_type = "db.t3.medium"
     subnets = data.aws_subnet_ids.database_subnets.ids
     vpc_id = data.aws_vpc.vpc.id
-    master_username = var.db_user
-    master_password = var.db_pass
+    master_username = data.sops_file.secret.data["username"]
+    master_password = data.sops_file.secret.data["password"]
 }
