@@ -16,7 +16,7 @@ module "vpc" {
 
   private_subnets = var.private_subnets
   public_subnets  = var.public_subnets
-  # database_subnets = var.database_subnets
+  database_subnets = var.database_subnets
 
   tags = {
     Name        = "cloudcasts-${var.infra_env}-vpc"
@@ -31,6 +31,10 @@ module "vpc" {
 
   public_subnet_tags = {
     Role = "public"
+  }
+
+  database_subnet_tags = {
+    Role = "database"
   }
 }
 

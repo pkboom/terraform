@@ -22,9 +22,14 @@
 
 # Credentials
 
+[Set configuration settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+
 ```
-// ~/.aws/credentials
-[cloudcasts]
-aws_access_key_id = ...
-aws_secret_access_key = ...
+$ aws configure [--profile cloudcasts]
+AWS Access Key ID [None]: **********************
+AWS Secret Access Key [None]: *******************
+Default region name [None]: us-east-2
+Default output format [None]: json
 ```
+
+> Check ~/.aws/config and ~/.aws/credentials

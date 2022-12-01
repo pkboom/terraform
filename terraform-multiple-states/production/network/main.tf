@@ -39,7 +39,8 @@ module "vpc" {
   # For later use(peer comminucations between subnets), we use 10.0.0.0/17 instead of 10.0.0.0/16
   vpc_cidr        = "10.0.0.0/17"
   azs             = ["us-east-2a", "us-east-2b", "us-east-2c"]
-  public_subnets  = slice(cidrsubnets("10.0.0.0/17", 4, 4, 4, 4, 4, 4), 0, 3)
-  private_subnets = slice(cidrsubnets("10.0.0.0/17", 4, 4, 4, 4, 4, 4), 3, 6)
+  public_subnets = slice(cidrsubnets("10.0.0.0/17", 4, 4, 4, 4, 4, 4, 4, 4, 4), 0, 3)
+  private_subnets = slice(cidrsubnets("10.0.0.0/17", 4, 4, 4, 4, 4, 4, 4, 4, 4), 3, 6)
+  database_subnets = slice(cidrsubnets("10.0.0.0/17", 4, 4, 4, 4, 4, 4, 4, 4, 4), 6, 9)
 }
 

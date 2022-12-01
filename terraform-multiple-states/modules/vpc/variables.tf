@@ -15,14 +15,17 @@ variable "azs" {
   description = "AZs to create subnets into"
 }
 
-# Simplified Variable
 variable "public_subnets" {
   type        = list(string)
   description = "subnets to create for public network traffic, one per AZ"
 }
 
-# Simplified Variable
 variable "private_subnets" {
   type        = list(string)
   description = "subnets to create for private network traffic, one per AZ"
+}
+
+variable "database_subnets" {
+  type        = list(string)
+  description = "subnets to create for database network traffic, one per AZ"
 }
