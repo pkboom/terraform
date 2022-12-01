@@ -31,5 +31,5 @@ override.tf.json
 DS_Store
 .idea
 
-/.sops.yaml
-/secret.json
+.sops.yaml
+secret.json

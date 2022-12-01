@@ -6,9 +6,9 @@ terraform {
     }
 
     sops = {
-      source = "carlpett/sops"
+      source  = "carlpett/sops"
       version = "~> 0.5"
-    } 
+    }
   }
 
   backend "s3" {
@@ -65,12 +65,12 @@ data "aws_subnets" "database_subnets" {
 }
 
 module "database" {
-    source = "../../modules/rds"
-    
-    infra_env = var.infra_env
-    instance_type = "db.t3.medium"
-    subnets = data.aws_subnet_ids.database_subnets.ids
-    vpc_id = data.aws_vpc.vpc.id
-    master_username = data.sops_file.secret.data["username"]
-    master_password = data.sops_file.secret.data["password"]
+  source = "../../modules/rds"
+
+  infra_env       = var.infra_env
+  instance_class  = "db.t3.medium"
+  subnets         = data.aws_subnets.database_subnets.ids
+  vpc_id          = data.aws_vpc.vpc.id
+  master_username = data.sops_file.secret.data["username"]
+  master_password = data.sops_file.secret.data["password"]
 }

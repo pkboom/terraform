@@ -9,19 +9,17 @@ module "rds-aurora" {
   name           = "cloudcasts-${var.infra_env}-aurora-mysql"
   engine         = "aurora-mysql"
   engine_version = "5.7.mysql_aurora.2.09.2"
-  instance_type  = var.instance_type
+  instance_class = var.instance_class
 
   vpc_id  = var.vpc_id
   subnets = var.subnets
-
-  replica_count = 1
 
   db_parameter_group_name         = aws_db_parameter_group.db_parameter_group.name
   db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.paramater_group.name
 
   create_random_password = false
-  username               = var.master_username
-  password               = var.master_password
+  master_username        = var.master_username
+  master_password        = var.master_password
 
   tags = {
     Environment = var.infra_env
