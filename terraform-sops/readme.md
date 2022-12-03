@@ -4,8 +4,8 @@
 
 2. Click on 'Create key'
 
-<img src="images/bucket1.png" />
-<img src="images/bucket2.png" />
+<img src="images/kms-1.png" />
+<img src="images/kms-2.png" />
 
 # Create encrypted secret
 
