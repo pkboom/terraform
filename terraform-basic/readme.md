@@ -16,19 +16,6 @@ terraform apply output.hcl // you don't get a prompt for `yes`
 terraform apply -var-file variables.tfvars // with a variable file
 ```
 
-# Create a bucket for terraform resources
-
-<img src="images/bucket1.png" />
-<img src="images/bucket2.png" />
-<img src="images/bucket3.png" />
-<img src="images/bucket4.png" />
-<img src="images/bucket5.png" />
-
-# Create a dynamoDB for state locking and consistency
-
-<img src="images/dynamodb1.png" />
-<img src="images/dynamodb2.png" />
-
 # AWS Provider
 
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs
