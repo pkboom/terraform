@@ -7,11 +7,11 @@ terraform {
   }
 }
 
+variable "api_token" {}
+
 provider "digitalocean" {
   token = var.api_token
 }
-
-variable "api_token" {}
 
 data "digitalocean_image" "this" {
   name = "experiment-web"
@@ -22,10 +22,11 @@ resource "digitalocean_droplet" "web" {
   name   = "${var.infra_name}-${var.infra_env}-web"
   region = "tor1"
   size   = "s-1vcpu-1gb"
-  tags = {
-    Project     = "experiment.com"
-    Environment = var.infra_env
-    Type        = "web"
-    ManagedBy   = "terraform"
-  }
+  # tags may contain lowercase letters, numbers, colons, dashes, and underscores; 
+  # there is a limit of 255 characters per tag
+  tags = [
+    "experiment",
+    var.infra_env,
+    "web",
+  ]
 }
