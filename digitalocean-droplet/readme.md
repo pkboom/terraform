@@ -1,0 +1,3 @@
+```sh
+./run staging init
+```

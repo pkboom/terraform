@@ -3,9 +3,10 @@
 # If we don't have 2 arguments passed,
 # print usage and exit with error code
 if [ $# -lt 2 ]; then
-  echo >&2 "Usage: ./run <env> <command>
+  echo >&2 "
+Usage: ./run <env> <command>
 
-  e.g. ./run staging plan
+e.g. ./run staging
 "
   exit 1
 fi
@@ -21,6 +22,7 @@ cd $DIR
 
 # Remove first argument
 shift
+
 # Run terraform with any arguments passed
 terraform -chdir=./$TF_ENV $@
 
