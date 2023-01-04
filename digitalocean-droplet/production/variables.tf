@@ -5,7 +5,6 @@ variable "infra_env" {
 
 variable "infra_name" {
   type        = string
-  default     = "experiment"
   description = "name of project"
 }
 
