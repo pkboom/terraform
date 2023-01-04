@@ -14,7 +14,7 @@ provider "digitalocean" {
 }
 
 data "digitalocean_image" "this" {
-  name = "experiment-web"
+  name = "${var.infra_name}-web"
 }
 
 resource "digitalocean_droplet" "this" {
