@@ -1,4 +1,3 @@
-
 # https://cloudcasts.io/course/terraform/variables
 variable "infra_env" {
   type        = string

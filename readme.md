@@ -8,9 +8,11 @@
 
 [terraform-community-module](./terraform-community-module/readme.md)
 
+[terraform-enviroments](./terraform-enviroments/readme.md)
+
 [terraform-enviroment-directories](./terraform-enviroment-directories/readme.md)
 
-[terraform-multiple-states](./terraform-multiple-states/readme.md) <- complete version
+[terraform-sops](./terraform-sops/readme.md) <- complete version
 
 [CloudCasts](https://cloudcasts.io/course/terraform)
 
